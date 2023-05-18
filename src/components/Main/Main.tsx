@@ -7,11 +7,14 @@ type Props = {
 };
 
 const Main: FC<Props> = ({ items }) => {
+  console.log("Items in main", items);
   return (
     <div className={styles.zoomContainer}>
       <div>
-        {!!items.length &&
-          items.map((item: any) => <Item key={item.name} item={item} />)}
+        {!!items?.length &&
+          items.map((item: any, index: number) => (
+            <Item key={item.name} item={item} index={index} />
+          ))}
       </div>
     </div>
   );

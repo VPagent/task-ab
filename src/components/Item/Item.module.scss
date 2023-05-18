@@ -1,0 +1,13 @@
+.component {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: fit-content;
+  margin-right: auto;
+  margin-left: auto;
+
+  padding: 6px 16px;
+  border: 1px dashed black;
+}
