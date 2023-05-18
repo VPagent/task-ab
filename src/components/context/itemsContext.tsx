@@ -1,5 +1,31 @@
-import { createContext } from "react";
+import { FC, ReactNode, createContext, useContext, useState } from "react";
 
-const itemsContext = createContext({
+const ItemsContext = createContext({
   items: [],
 });
+
+type Props = {
+  children: ReactNode;
+};
+
+export const ItemsProvider: FC<Props> = ({ children }) => {
+  const [items, setItems] = useState<[] | null>(null);
+
+  return (
+    <ItemsContext.Provider
+      value={{
+        //@ts-ignore
+        items,
+        setItems,
+      }}
+    >
+      {children}
+    </ItemsContext.Provider>
+  );
+};
+
+const useItemsContext = () => {
+  return useContext(ItemsContext);
+};
+
+export default useItemsContext;
